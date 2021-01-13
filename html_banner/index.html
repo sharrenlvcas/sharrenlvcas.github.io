@@ -60,7 +60,8 @@
       #screenthree {
         width: 100%;
           height: 100%;
-          background-color: blue;
+          background-image: url('screen/screen_end.png');
+        background-size:cover;
           display: none;
       }
       
@@ -93,9 +94,13 @@
         document.getElementById('screenone').style.display = 'none';
         document.getElementById('screentwo').style.display = 'block';
         document.getElementById('screentwo').style.animationName = 'yourname';
-        document.getElementById('screentwo').style.animationDuration = '2s';
-        document.getElementById('screentwo').style.animationIterationCount = 'infinite';
+        document.getElementById('screentwo').style.animationDuration = '3s';
+        document.getElementById('screentwo').style.animationIterationCount = '1';
         document.getElementById('screentwo').style.animationFillMode = 'forward';
+        setTimeout(function(){ 
+          document.getElementById('screentwo').style.display = 'none';
+          document.getElementById('screenthree').style.display = 'block';
+        }, 3100);
       }
     </script>
   </body>

@@ -8,6 +8,11 @@
          padding:0;
       }
       
+      @keyframes blinkplay {
+        0% {opacity: 1;}
+        100% {opacity: 0}
+      }
+      
       #banner_container {
           width: 720px;
           height: 300px;
@@ -43,6 +48,9 @@
         background-image: url('screen/play_now.png');
         background-size:cover;
         display:block;
+        animation-name: example;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
       }
     </style>
   </head>

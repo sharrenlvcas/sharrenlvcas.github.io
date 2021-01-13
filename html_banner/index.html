@@ -90,7 +90,7 @@
       </div>
     </div>
     <script>
-      function gototwo() {
+       function gototwo() {
         document.getElementById('screenone').style.display = 'none';
         document.getElementById('screentwo').style.display = 'block';
         document.getElementById('screentwo').style.animationName = 'yourname';
@@ -98,10 +98,9 @@
         document.getElementById('screentwo').style.animationIterationCount = '1';
         document.getElementById('screentwo').style.animationFillMode = 'forward';
         setTimeout(function(){ 
-document.getElementById('screentwo').style.opacity = '0';
-document.getElementById('screenthree').style.opacity = '0';
-document.getElementById('screenthree').style.display = 'block';
-}, 4000);
+          document.getElementById('screentwo').style.display = 'none';
+          document.getElementById('screenthree').style.display = 'block';
+        }, 3100);
     </script>
   </body>
 </html>

@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>MDA Storybook</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      
+      @keyframes oi {
+        0% { top: 190px }
+        100% { top: 200px }
+      }
+
+      section {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+        background-color: grey;
+        transition: all 2s;
+      }
+      
+      #one {
+        top: 0;
+        left: 0;
+        opacity: 1;
+        transform: scale(1);
+        background-color: yellow;
+        background-image: url('beach.jpg');
+        background-size: cover;
+        border-radius: 0;
+        z-index: 5;
+      }
+      
+      #two {
+        top: 0;
+        left: 0;
+        background-color: blue;
+        z-index: 4;
+      }
+
+      #three {
+        top: 0;
+        left: 200vw;
+        background-color: red;
+        z-index: 3;
+      }
+
+      #four {
+        top: 0;
+        left: 300vw;
+        background-color: pink;
+        z-index: 2;
+      }
+
+      #five {
+        top: 0;
+        left: 400vw;
+        background-color: fuchsia;
+        z-index: 1;
+      }
+
+      #george {
+        width: 400px;
+        height: 200px;
+        
+        position: absolute;
+        top: 200px;
+        left: 100px;
+        
+        background-image: url('cat.png');
+        background-size:contain;
+        background-repeat: no-repeat;
+        
+        animation-name: oi;
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="gs" controls style="opacity:0">
+      <source src="horse.ogg" type="audio/ogg">
+      <source src="horse.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <section id="one">
+      <div id="george" onclick="gototwo()"></div>
+    </section>
+    <section id="two"></section>
+    <section id="three"></section>
+    <section id="four"></section>
+    <section id="five"></section>
+    
+    <script>
+    function gototwo() {
+      var gs = document.getElementById('gs');
+      
+      gs.play();
+      //document.getElementById('george').style.display = 'none';
+      document.getElementById('one').style.transform = 'scale(10)';
+      document.getElementById('one').style.opacity = '0';
+
+     // document.getElementById('two').style.left = '0vw';
+      document.getElementById('three').style.left = '100vw';
+      document.getElementById('four').style.left = '200vw';
+      document.getElementById('five').style.left = '300vw';
+      
+      setTimeout(function(){ 
+        document.getElementById('one').style.display = 'none';
+      }, 2000);
+    }
+    </script>
+  </body>
+</html>

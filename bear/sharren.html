@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <style>
+      #two {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: beige;
+        display: block;
+        transition: all 1s;
+      }
+      #three {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 100vw;
+        background-color: greenyellow;
+        display: block;
+        transition: all 1s;
+      }
+
+      #button {
+        width: 200px;
+        height: 50px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        background-color: coral;
+        color:darkolivegreen;
+
+      }
+
+      #hiddenindicatortwo {
+        position: fixed;
+        top: -50vh;
+      }
+
+    </style>
+  </head>
+    <body>
+      <div id="two">
+        <div id="hiddenindicatortwo">1</div>
+        <div id="button" onclick="that()">NEXT</div>
+      </div>
+      <div id="three">
+        <h1>this is screen three</h1>
+      </div>
+    </body>
+    <script>
+      function that() {
+        var current_indicator = document.getElementById('hiddenindicatortwo').innerHTML;
+        if (current_indicator == '1') {
+          document.getElementById('two').style.backgroundColor = 'red';
+          document.getElementById('hiddenindicatortwo').innerHTML = '2';
+        } else if (current_indicator == '2') {
+          document.getElementById('two').style.backgroundColor = 'pink';
+          document.getElementById('hiddenindicatortwo').innerHTML = '3';
+        } else if (current_indicator == '3') {
+          document.getElementById('two').style.backgroundColor = 'blue';
+          document.getElementById('hiddenindicatortwo').innerHTML = '4';
+        } else {
+          document.getElementById('two').style.left = '-100vw';
+          document.getElementById('three').style.left = '0';
+        }
+      }
+    </script>
+</html>

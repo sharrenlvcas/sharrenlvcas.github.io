@@ -1,6 +1,11 @@
 <html>
   <head>
     <style>
+      @keyframe jump {
+        0% {top: 100px;}
+	      100% {opacity: 150px}
+      }
+      
       #two {
         width: 100vw;
         height: 100vh;
@@ -21,6 +26,17 @@
         display: block;
         transition: all 1s;
       }
+      
+      #bear1 {
+        width: 100px;
+        height 100px;
+        position: fixed;
+        display: block;
+        color: red;
+        animation-name: jump;
+        animation duration: 2s;
+        animation-iteration-count: infinite;
+      }
 
       #button {
         width: 200px;
@@ -37,6 +53,11 @@
         position: fixed;
         top: -50vh;
       }
+      
+      #hiddenindicatorthree {
+        position: fixed;
+        top: -50vh;
+      }
 
     </style>
   </head>
@@ -46,6 +67,9 @@
         <div id="button" onclick="that()">NEXT</div>
       </div>
       <div id="three">
+        <div id="bear1"> </div>
+        <div id="hiddenindicatorthree">2</div>
+        <div id="button" onclick="that2()">2</div>
         <h1>this is screen three</h1>
       </div>
     </body>
@@ -66,5 +90,21 @@
           document.getElementById('three').style.left = '0';
         }
       }
+      
+      function that2() {
+        var current_indicator = document.getElementById('hiddenindicatorthree').innerHTML;
+        if (current_indicator == '1') {
+          document.getElementById('three').style.backgroundColor = 'purple';
+          document.getElementById('hiddenindicatorthree').innerHTML = '2';
+        } else if (current_indicator == '2') {
+          document.getElementById('three').style.backgroundColor = 'pink';
+          document.getElementById('hiddenindicatorthree').innerHTML = '3';
+        } else if (current_indicator == '3') {
+          document.getElementById('three').style.backgroundColor = 'blue';
+          document.getElementById('hiddenindicatorthree').innerHTML = '4';
+        } else {
+          document.getElementById('three').style.left = '-100vw';
+          document.getElementById('four').style.left = '0';
+        }
     </script>
 </html>

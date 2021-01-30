@@ -1,0 +1,237 @@
+<html>
+  <head>
+    <style>
+
+    @keyframes jump {
+      	0% {top: 100px}
+      	100% {top: 150px}
+      }
+
+    @keyframes roll {
+      	0% {left: 200px}
+      	100% {left: 500px}
+      }
+
+    @keyframes run {
+      	0% {right: 200px}
+      	100% {right: 500px}
+      }
+      
+      #one {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: beige;
+        display: block;
+        transition: all 1s;
+      }
+      #two {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 100vw;
+        background-color: greenyellow;
+        display: block;
+        transition: all 1s;
+      }
+
+      #three {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 100vw;
+        background-color: red;
+        display: block;
+        transition: all 1s;
+      }
+
+      #four {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 100vw;
+        background-color: green;
+        display: block;
+        transition: all 1s;
+      }
+
+      #five {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 100vw;
+        background-color: pink;
+        display: block;
+      }
+      
+      #bear1 {
+        width: 100px;
+        height: 100px;
+        top: 100px;
+        left: 500px;
+        position: absolute;
+        display: none;
+        background-color: white;
+        animation-name: jump;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      #bear2 {
+        width: 100px;
+        height: 100px;
+        top: 50vh;
+        left: 500px;
+        position: absolute;
+        display: none;
+        background-color: white;
+        animation-name: roll;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      #bear3 {
+        width: 100px;
+        height: 100px;
+        top: 50vh;
+        right: 500px;
+        position: absolute;
+        display: none;
+        background-color: white;
+        animation-name: run;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      #button {
+        width: 200px;
+        height: 50px;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        background-color: coral;
+        color:darkolivegreen;
+
+      }
+
+      #hiddenindicatorone {
+        position: fixed;
+        top: -50vh;
+      }
+      
+      #hiddenindicatortwo {
+        position: fixed;
+        top: -50vh;
+      }
+
+      #hiddenindicatorthree {
+        position: fixed;
+        top: -50vh;
+      }
+      
+      #hiddenindicatorfour {
+        position: fixed;
+        top: -50vh;
+      }
+
+    </style>
+  </head>
+    <body>
+      <div id="one">
+        <div id="hiddenindicatorone">1</div>
+        <div id="button" onclick="that()">NEXT</div>
+        <h1>this is screen one</h1>
+      </div>
+      <div id="two">
+        <div id="bear1"> </div>
+        <div id="hiddenindicatortwo">1</div>
+        <div id="button" onclick="that2()">NEXT</div>
+        <h1>this is screen two</h1>
+      </div>
+      <div id="three">
+        <div id="bear2"> </div>
+        <div id="bear3"> </div>
+        <div id="hiddenindicatorthree">1</div>
+        <div id="button" onclick="that3()">NEXT</div>
+        <h1>this is screen three</h1>
+      </div>
+      <div id="four">
+        <div id="hiddenindicatorfour">1</div>
+        <div id="button" onclick="that4()">NEXT</div>
+        <h1>this is screen four</h1>
+      </div>
+      <div id="five">
+      <h1>this is screen five</h1>
+    </body>
+    <script>
+      function that() {
+        var current_indicator = document.getElementById('hiddenindicatorone').innerHTML;
+        if (current_indicator == '1') {
+          document.getElementById('one').style.backgroundColor = 'red';
+          document.getElementById('hiddenindicatorone').innerHTML = '2';
+        } else if (current_indicator == '2') {
+          document.getElementById('one').style.backgroundColor = 'pink';
+          document.getElementById('hiddenindicatorone').innerHTML = '3';
+        } else {
+          document.getElementById('one').style.left = '-100vw';
+          document.getElementById('two').style.left = '0';
+        }
+      }
+
+       function that2() {
+        var current_indicator = document.getElementById('hiddenindicatortwo').innerHTML;
+        if (current_indicator == '1') {
+          document.getElementById('two').style.backgroundColor = 'purple';
+          document.getElementById('hiddenindicatortwo').innerHTML = '2';
+        } else if (current_indicator == '2') {
+          document.getElementById('two').style.backgroundColor = 'pink';
+          document.getElementById('hiddenindicatortwo').innerHTML = '3';
+          document.getElementById('bear1').style.display = 'block';
+        } else {
+          document.getElementById('two').style.left = '-100vw';
+          document.getElementById('three').style.left = '0';
+          document.getElementById('bear1').style.display = 'none';
+        }
+      }
+
+      function that3() {
+        var current_indicator = document.getElementById('hiddenindicatorthree').innerHTML;
+        if (current_indicator == '1') {
+          document.getElementById('three').style.backgroundColor = 'yellow';
+          document.getElementById('hiddenindicatorthree').innerHTML = '2';
+          document.getElementById('bear2').style.display = 'block';
+
+        } else if (current_indicator == '2') {
+          document.getElementById('three').style.backgroundColor = 'orange';
+          document.getElementById('hiddenindicatorthree').innerHTML = '3';
+          document.getElementById('bear2').style.display = 'none';
+          document.getElementById('bear3').style.display = 'block';
+        } else {
+          document.getElementById('three').style.left = '-100vw';
+          document.getElementById('four').style.left = '0';
+          document.getElementById('bear3').style.display = 'none';
+        }
+      }
+
+      function that4() {
+        var current_indicator = document.getElementById('hiddenindicatorfour').innerHTML;
+        if (current_indicator == '1') {
+          document.getElementById('four').style.backgroundColor = 'blue';
+          document.getElementById('hiddenindicatorfour').innerHTML = '2';
+        } else if (current_indicator == '2') {
+          document.getElementById('four').style.backgroundColor = 'purple';
+          document.getElementById('hiddenindicatorfour').innerHTML = '3';
+        } else {
+          document.getElementById('four').style.left = '-100vw';
+          document.getElementById('five').style.left = '0';
+        }
+      }
+
+    </script>
+</html>
